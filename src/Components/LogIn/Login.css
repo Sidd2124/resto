@@ -1,34 +1,28 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    
-  }
+
   
   .container {
     text-align: center;
-    margin: 50px auto;
     display: flex;
     flex-direction: column;
-    gap:80px ;
+    gap:130px;
     border: 1px solid #ccc;
-    border-radius: 10px;
-    max-width: 400px;
+    width: 100vw;
     height: 100vh;
     background-color: rgb(235, 232, 232);
+    
   }
   
   .input-field {
     margin-top: 10px;
     width: 100%;
+    font-size: 20px;
     padding: 10px;
     box-sizing: border-box;
     text-align: center;
     border: none;
     border-bottom: 2px solid #838181; /* Border bottom style */
     outline: none;
-    
+    margin-bottom: 20px;
     background-color: rgb(235, 232, 232);
   }
   
@@ -60,6 +54,8 @@ justify-content: space-between;
     border: 0px solid black;
     width: 300px;
     height: 50px;
+    font-size: 25px;
+    font-family: italic;
     
   }
   .LoginFirstLayer{
@@ -79,7 +75,7 @@ justify-content: space-between;
   }
   .LoginSecondLayer{
     padding: 20px;
-    display: flex;
+    
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
@@ -88,6 +84,38 @@ justify-content: space-between;
   .ChefLogo{
     height: 200px;
     width: 200px;
+  }
+
+
+  .OTPContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    animation: fadeInUp 1s ease forwards;
+    transform-origin: top;
+    opacity: 0;
+    margin: 20px;
+    background-color: white;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  #recaptcha{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
   }
   @media only screen and (min-width: 600px) {
     .container {

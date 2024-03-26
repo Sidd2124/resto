@@ -1,0 +1,64 @@
+.HomeTopLayer{
+    background-color: rgb(255, 77, 0);
+    height: 100vh;
+    width: 100vw;
+    color: white;
+    display: flex;
+    flex-direction: column;
+   
+}
+
+.StartButton{
+    background-color: white;
+    color:     rgb(255, 77, 0);
+    padding: 20px;
+    width: 200px;
+    border-radius: 82px;
+    border: none;
+    font-size: 23px;
+    font-weight: bold;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  margin: 40px;
+  
+}
+.CaptionTitle{
+    font-weight: bold;
+    font-size: 73px;
+    margin: 20px;
+    opacity: 0.4;
+}
+.Row{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    font-family: italic;
+    
+}
+
+.Toy{
+    height: 300px;
+    width:450px;
+    display: block;
+}
+
+.Overlay {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    top: 0;
+    left: 0;
+    z-index: 1; /* Ensure the second image appears on top */
+  }
+  .MiniChefLogo{
+    background-color: white;
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+    padding: 10px;
+    margin: 20px;
+  }
+  .MakeCenter{
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+  }
