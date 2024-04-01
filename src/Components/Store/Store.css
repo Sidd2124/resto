@@ -1,0 +1,67 @@
+.userIcon{
+    height: 30px;
+    width: 30px;
+}
+.itemslist{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    overflow-y: auto;
+}
+.ChefEmoji{
+    height: 80px;
+    background-color: rgb(227, 223, 223);
+    margin-top: 50px;
+}
+.CaptionTitile {
+    width: 200px;
+    margin: 20px;
+    font-family: Dancing Script;
+    opacity: 0; /* Initially hide the element */
+    transform: scale(0.8); /* Initially scale down the element */
+    animation: fadeInScale 1s ease forwards; /* Apply animation */
+  }
+  
+  @keyframes fadeInScale {
+    from {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+.StoreTop{
+    padding: 20px;
+    background-color: white;
+    height: 100vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+.Serach{
+    
+    background-color: rgb(227, 223, 223);
+    border: none;
+    padding: 7px;
+    border-radius: 8px;
+}
+.Cart{
+    
+    height: 30px;
+}
+.CartSetup{
+    display: flex;
+    justify-content: space-between;
+}
+.Noitems{
+    padding: 10px;
+    text-align: center;
+    font-size: 12px;
+}
+.NoitemLogo{
+    height: 300px;
+    width: 300px;
+}

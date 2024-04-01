@@ -1,0 +1,19 @@
+.StylingOne{
+    background-color: white;
+    color: orange;
+    border: none;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+    padding: 6px;
+    margin: 6px;
+border-radius: 8px;
+background-color: white;
+    
+}
+.StylingTwo{
+    background-color: white;
+    color: black;
+    border: 0px solid white;
+    padding: 6px;
+    margin: 6px;
+    background-color: white;
+}

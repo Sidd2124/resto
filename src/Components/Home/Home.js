@@ -15,7 +15,7 @@ const Home = () => {
                 We Promise Delicious Food.
             </h1>
 
-            <img className="Toy " src={BiryaniLogo} alt="ToyOne" />
+            <img className="Toy" src={BiryaniLogo} alt="ToyOne" />
 
 
             <Link to="/Store" className="MakeCenter">

@@ -1,14 +1,43 @@
-.FoodItemContainer{
+.FoodItemContainer {
     padding: 10px;
+    background-color: white;
     margin: 10px;
-    border: 1px solid black;
+    width: 120px;
     font-family: 'Times New Roman', Times, serif;
     text-align: center;
-}
+    border-radius: 6px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4); /* Shadow effect */
+  }
+  
 
 
 .ItemLogo{
-    height: 200px;
-    width: 200px;
-    border-radius:8px ;
+    height: 80px;
+    width: 80px;
+    border-radius:50% ;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.AddtoCart{
+    background-color: rgb(148, 218, 242);
+    color: white;
+    border: 0px solid black;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 6px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.Description{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    text-align: center;
+    font-size: 13px;
+}
+.HeadingTitle{
+    color: orange;
+    font-size: 15px;
+}
+.Quantity{
+    margin-top: 12px;
 }

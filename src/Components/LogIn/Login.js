@@ -1,19 +1,19 @@
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
 import {signInWithPhoneNumber,RecaptchaVerifier } from "firebase/auth";
 import  auth  from '../LogIn/Setup'
 import "./Login.css";
-
-
+import Info from '../Context/Context'
 
 const LogIn = (props) => {
   const [phoneNumbers, setPhoneNumber] = useState("");
- 
   const [confirmationResult, setConfirmationResult] = useState(null);
   const [otp,setotp]=useState("")
   const [otpView,SetOTPView]=useState("none")
   const [contactView,setcontactView]=useState("")
   const[timer,settimer]=useState(0)
   const[minute,setminute]=useState(0)
+  const [client,SetClient]=useState("")
+  const{UserTitileUpdate}=useContext(Info)
 
   const value=localStorage.getItem("Token")
   console.log(value)
@@ -35,13 +35,9 @@ const LogIn = (props) => {
     })
     }, 1000);
 
-    // Clear the interval when the component is unmounted
+   
     return () => clearInterval(timing);
   }
-
-
- 
- 
 
   const sendOTP = async () => {
     if (phoneNumbers === '' || phoneNumbers.length !== 10) {
@@ -94,25 +90,29 @@ const verifyOTP = async () => {
   }
 };
 
+const UpdateUserName=(e)=>{
+  SetClient(e.target.value)
+UserTitileUpdate(client)
+
+}
+
 
   return (
     <div className="container">
-
-      <div className="LoginFirstLayer">
+<div className="LoginFirstLayer ">
         <img className="ChefLogo" src="https://i.ibb.co/0nT2Cjq/0845c232253239-56766f2d063c9.gif" alt="ChefLogo" />
-        <h3 className="Title">IDeal Kitchen Welcome's You</h3>
+        <h3 className="Title">iDeal Kitchen Welcome's You</h3>
         <h1 className="header">Login</h1>
-     
-   
-        
-   
-      </div>
+        </div>
       <div className="LoginSecondLayer" style={{ display: contactView }}>
         <div className="Row">
-          <h3>+91</h3>
+          <input type="text" onChange={UpdateUserName} className="input-field" placeholder="Enter Your Name"/>
+        </div>
+        <div className="Row">
+      
           <input onChange={(e) => setPhoneNumber(e.target.value)} value={phoneNumbers} placeholder="Enter Your Contact Number" pattern="[0-9]" className="input-field" type="tel" name="mobile" maxLength="10" />
         </div>
-        <button className="OTPSubmit" onClick={sendOTP}>Send OTP</button>
+        <button className="OTPSubmit" onClick={sendOTP}>Get OTP</button>
         <div id="recaptcha">
 
         </div>

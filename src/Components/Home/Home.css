@@ -5,6 +5,7 @@
     color: white;
     display: flex;
     flex-direction: column;
+    overflow-y: auto;
    
 }
 
@@ -23,7 +24,7 @@
 }
 .CaptionTitle{
     font-weight: bold;
-    font-size: 73px;
+    font-size: 53px;
     margin: 20px;
     opacity: 0.4;
 }
@@ -37,8 +38,9 @@
 
 .Toy{
     height: 300px;
-    width:450px;
-    display: block;
+    width:280px;
+    margin-left: 50px;
+    
 }
 
 .Overlay {
