@@ -40,8 +40,10 @@ const LogIn = (props) => {
   }
 
   const sendOTP = async () => {
-    if (phoneNumbers === '' || phoneNumbers.length !== 10) {
-        alert("Enter Valid Mobile Number");
+    if (phoneNumbers === '' || phoneNumbers.length !== 10||client==="") {
+        alert("Enter Valid Deatils");
+        SetClient("")
+        setPhoneNumber("")
     } else {
         try {
             const phoneNumberWithCountryCode = `+91${phoneNumbers}`;
@@ -106,7 +108,7 @@ UserTitileUpdate(client)
         </div>
       <div className="LoginSecondLayer" style={{ display: contactView }}>
         <div className="Row">
-          <input type="text" onChange={UpdateUserName} className="input-field" placeholder="Enter Your Name"/>
+          <input type="text" value={client} onChange={UpdateUserName} className="input-field" placeholder="Enter Your Name"/>
         </div>
         <div className="Row">
       

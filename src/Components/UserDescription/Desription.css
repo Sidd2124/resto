@@ -21,8 +21,9 @@
   }
 
   .desriptionItems{
-    color: white;
+    color: black;
     font-family: Georgia, 'Times New Roman', Times, serif;
+   
   }
 
   .mini{
@@ -36,10 +37,21 @@
     }
   
     .LogoutButton{
-      background-color: orange;
+      background-color: white;
       color: black;
       width: fit-content;
       border: 1px solid ;
       padding: 7px;
       border-radius: 6px;
+    }
+    .LinkDecoraation{
+      text-decoration: none;
+    }
+    .DescriptionLayerTwo{
+      background-color: white;
+      padding: 6px;
+      margin: 6px;
+      border-radius: 6px;
+      width: 270px;
+      text-align: center;
     }

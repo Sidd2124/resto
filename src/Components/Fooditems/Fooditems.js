@@ -1,21 +1,17 @@
+import { useContext } from "react"
+import Info from "../Context/Context"
 import "./foodiems.css"
-import { useState } from "react"
+
 const Fooditems=(props)=>{
     const {Details}=props
     const {Image,Name,Price,Rating,Quantity}=Details
-    const[itemQuantity,setitemQuantity]=useState(0)
-    const Increase=()=>{
-        setitemQuantity(prevCount=>prevCount+1)
+    const {UpdateItemsToList}=useContext(Info)
+    const AddItemsToList=()=>{
+        UpdateItemsToList(Details)
     }
-    const Decrese=()=>{
-        setitemQuantity(prevCount=>{if(prevCount===0){
-            setitemQuantity(0)
-        }else{
-            return prevCount-1
-        }
-    })
+ 
 
-    }
+    
     return(
         <div className="FoodItemContainer">
 <img className="ItemLogo" src={Image} alt="FooditemLogo"/>
@@ -27,7 +23,7 @@ const Fooditems=(props)=>{
 </div>
 
 <div>
-<button className="AddtoCart">Add to Cart</button>
+<button className="AddtoCart" onClick={AddItemsToList}>Add to Cart</button>
 </div>
         </div>
     )
