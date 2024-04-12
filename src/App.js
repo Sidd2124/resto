@@ -6,6 +6,7 @@ import Home from './Components/Home/Home'
 import Store from './Components/Store/Store'
 import Cart from './Components/Cart/Cart';
 import Info from './Components/Context/Context';
+import Contact from './Components/ContactUS/Contactus'
 
 
 
@@ -48,7 +49,7 @@ this.setState(prevState=>({Bill:[...prevState.Bill,X]}))
   this.setState(prevState=>({userStatus:!prevState.userStatus}))
  }
   render(){
-    const {user,userStatus,CartItems,Bill,Bills}=this.state
+    const {user,userStatus,CartItems,Bill,}=this.state
     console.log(Bill)
   
 return(
@@ -59,6 +60,7 @@ return(
     <Route exact path="/" component={Home}/>
     <Route exact path="/Store" component={Store}/>
     <Route exact path="/Cart" component={Cart}/>
+    <Route exact path="/Contact" component={Contact}/>
   </Switch>
 </Router>
 </Info.Provider>

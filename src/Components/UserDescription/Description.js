@@ -28,7 +28,10 @@ return(
         </Link>
    
         <h3 className='desriptionItems'>Orders</h3>
+        <Link to="/Contact" className="LinkDecoraation">
         <h3 className='desriptionItems'>Contact US</h3>
+        </Link>
+        
         
         <button onClick={RemoveToken} className='LogoutButton'>LogOut</button>
         </div>
