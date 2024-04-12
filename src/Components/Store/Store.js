@@ -31,6 +31,7 @@ const Store = () => {
     const [updatedType, updatedtype] = useState("Breakfast")
     const [searchResult, SetsearchResult] = useState("")
     const { UserInfo, UpdateUserVisibility } = useContext(Info)
+  
 
 
 
@@ -50,6 +51,7 @@ const Store = () => {
         const response = await axios.get(URL);
         const dataArray = Object.values(response.data);
         setimportdata([...new Set([...dataArray])])
+
     }
 
     const UpdateUserInfoStatus = () => {

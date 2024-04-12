@@ -13,7 +13,7 @@ import Info from './Components/Context/Context';
 
 
 class App extends Component{
- state={user:localStorage.getItem("userName"),userStatus:false,CartItems:JSON.parse(localStorage.getItem("CartItems")) || []}
+ state={user:localStorage.getItem("userName"),userStatus:false,CartItems:JSON.parse(localStorage.getItem("CartItems")) || [],Bill:[]}
 
 
 
@@ -27,6 +27,17 @@ this.setState(prevState=>{
 })
 };
 
+RemovedCartItems=(F)=>{
+  const {CartItems}=this.state
+  const FilterdRemoved=CartItems.filter((each)=>each.id!==F)
+  this.setState({CartItems:FilterdRemoved},
+    localStorage.setItem("CartItems",JSON.stringify(FilterdRemoved)))
+}
+
+EnterBill=(X)=>{
+this.setState(prevState=>({Bill:[...prevState.Bill,X]}))
+
+}
 
  Updateusernameglobelly=(N)=>{
   localStorage.setItem("userName",N)
@@ -37,10 +48,11 @@ this.setState(prevState=>{
   this.setState(prevState=>({userStatus:!prevState.userStatus}))
  }
   render(){
-    const {user,userStatus,CartItems}=this.state
+    const {user,userStatus,CartItems,Bill,Bills}=this.state
+    console.log(Bill)
   
 return(
-  <Info.Provider value={{username:user,UserTitileUpdate:this.Updateusernameglobelly,UserInfo:userStatus,UpdateUserVisibility:this.AlterUserVisibility,FinelCartList:CartItems,UpdateItemsToList:this.AddingItems}}>
+  <Info.Provider value={{username:user,UserTitileUpdate:this.Updateusernameglobelly,UserInfo:userStatus,UpdateUserVisibility:this.AlterUserVisibility,FinelCartList:CartItems,UpdateItemsToList:this.AddingItems,RemoveUpdates:this.RemovedCartItems,BillAmount:Bill,UpdatedBill:this.EnterBill,}}>
   <Router>
   <Switch>
     <Route exact path="/Login" component={LogIn} />

@@ -4,10 +4,12 @@ import "./foodiems.css"
 
 const Fooditems=(props)=>{
     const {Details}=props
-    const {Image,Name,Price,Rating,Quantity}=Details
+    const {id,Image,Name,Price,Rating,Quantity}=Details
+    console.log(id)
     const {UpdateItemsToList}=useContext(Info)
     const AddItemsToList=()=>{
         UpdateItemsToList(Details)
+        alert("Item Added Successfully...See Your In Cart")
     }
  
 
