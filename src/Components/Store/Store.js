@@ -50,6 +50,7 @@ const Store = () => {
         const URL = 'https://restomenu-b798e-default-rtdb.firebaseio.com/data.json'
         const response = await axios.get(URL);
         const dataArray = Object.values(response.data);
+        console.log(dataArray)
         setimportdata([...new Set([...dataArray])])
 
     }

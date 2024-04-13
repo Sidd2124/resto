@@ -1,0 +1,12 @@
+.OrderList{
+    width: 100vw;
+    display: flex;
+    flex-direction: Row;
+    flex-wrap: wrap
+;
+}
+
+.OrdersTitle{
+    text-align: center;
+    font-family: u;
+}

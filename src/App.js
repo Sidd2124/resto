@@ -11,13 +11,18 @@ import Orders from './Components/Orders/Orders'
 
 
 class App extends Component {
+
+  
   state = {
     user: localStorage.getItem("userName"),
     userStatus: false,
     CartItems: JSON.parse(localStorage.getItem("CartItems")) || [],
+    FoodOrdersDate:`${new Date().getDate()}/${new Date().getMonth() + 1}/${new Date().getFullYear()}`
   }
 
 
+
+  
 
   AddingItems = (D) => {
     this.setState(prevState => {
@@ -44,7 +49,9 @@ class App extends Component {
     });
   };
 
-
+  UpdateDate=(Z)=>{
+    this.setState({FoodOrdersDate:Z})
+  }
 
 
 
@@ -59,10 +66,14 @@ class App extends Component {
     this.setState(prevState => ({ userStatus: !prevState.userStatus }))
   }
   render() {
-    const { user, userStatus, CartItems, } = this.state
+    const { user, userStatus, CartItems, FoodOrdersDate} = this.state
+
+    
+    
+    
 
     return (
-      <Info.Provider value={{ username: user, UserTitileUpdate: this.Updateusernameglobelly, UserInfo: userStatus, UpdateUserVisibility: this.AlterUserVisibility, FinelCartList: CartItems, UpdateItemsToList: this.AddingItems, RemoveUpdates: this.RemovedCartItems, MakeCartClear: this.Clearing }}>
+      <Info.Provider value={{ username: user, UserTitileUpdate: this.Updateusernameglobelly, UserInfo: userStatus, UpdateUserVisibility: this.AlterUserVisibility, FinelCartList: CartItems, UpdateItemsToList: this.AddingItems, RemoveUpdates: this.RemovedCartItems, MakeCartClear: this.Clearing,OrederdDate:FoodOrdersDate,OrderdDate:this.UpdateDate }}>
         <Router>
           <Switch>
             <Route exact path="/Login" component={LogIn} />

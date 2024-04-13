@@ -6,7 +6,7 @@ const Fooditems=(props)=>{
     const {Details}=props
     const {id,Image,Name,Price,Rating,Quantity}=Details
     console.log(id)
-    const {UpdateItemsToList}=useContext(Info)
+    const {UpdateItemsToList,username}=useContext(Info)
     const[Size,SetSize]=useState(1)
 
     const DecreaseQuantity = () => {
@@ -23,8 +23,14 @@ const Fooditems=(props)=>{
         SetSize(prevState=>prevState+1)
       };
    
+      const currentDate = new Date();
+const currentDay = currentDate.getDate();
+const currentMonth = currentDate.getMonth() + 1; 
+const currentYear = currentDate.getFullYear();
+
+const OrderDate=`${currentDay}/${currentMonth}/${currentYear}`
     const AddItemsToList=()=>{
-        UpdateItemsToList({...Details,Size})
+        UpdateItemsToList({...Details,Size,OrderDate,username})
         alert("Item Added Successfully...See Your In Cart")
     }
  

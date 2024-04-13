@@ -21,6 +21,8 @@ const Cart =(props)=>{
   }
 
 
+ 
+
 
 const postToServer = async () => {
  
@@ -36,7 +38,7 @@ const currentYear = currentDate.getFullYear();
 const OrderDate=`${currentDay}/${currentMonth}/${currentYear}`
 
 
-  const FinelUpdatesCartList = {...FinelCartList,OrderCount:ordersCount,DateofOrder:OrderDate,userName:username};
+  const FinelUpdatesCartList =( {FinelCartList})
 
   try {
     const URL = 'https://restomenu-b798e-default-rtdb.firebaseio.com/Orders.json';
