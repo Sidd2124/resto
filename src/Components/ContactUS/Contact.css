@@ -23,9 +23,8 @@ label {
     font-weight: bold;
 }
 
-input[type="text"],
-input[type="email"],
-textarea {
+
+.textarea {
     width: 300px;
     padding: 10px;
     border: 1px solid #ccc;
@@ -53,13 +52,36 @@ button[type="submit"]:hover {
 .WhatsAppLogo{
     height: 40px;
 }
-.ContactBottom{
+@keyframes pop-up {
+    0% {
+      opacity: 0;
+      transform: translateY(50%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .ContactBottom {
     display: flex;
     gap: 40px;
     margin-top: 40px;
-}
+  }
+  
+  .ContactBottom a {
+    opacity: 0;
+    animation: pop-up 0.5s ease forwards;
+  }
+  
+  .ContactBottom a:hover {
+    animation: none; /* Disable animation on hover */
+    opacity: 1;
+    transform: scale(1.1); /* Optional: Add scaling effect on hover */
+  }
+  
 
-.ContactTitle{
+.ContactTitless{
     color: orange;
     padding: 8px;
     font-family: Georgia, 'Times New Roman', Times, serif;

@@ -1,19 +1,88 @@
-import { useContext } from "react"
+import { useContext,useState } from "react"
 import {Link} from 'react-router-dom'
 import CartItem from '../CartItems/CartItem'
 import Info from "../Context/Context"
 import  Hungry from '../Assets/Hungry.gif'
+import axios from "axios"
 import './Cart.css'
 
-const Cart =()=>{
-    const {FinelCartList,username,BillAmount}=useContext(Info)
+const Cart =(props)=>{
+    const {FinelCartList,username,MakeCartClear}=useContext(Info)
+    const [ordersCount,SetordersCount]=useState(0)
+   
+
     var FinelPrice = 0;
     
-  if(FinelCartList.length!==0){
-    const Price=FinelCartList.map((each)=>each.Price)
-     FinelPrice=Price.reduce((One,Two)=>One+Two)
+  if(FinelCartList.length!==0){  
+    
+    FinelPrice = FinelCartList.reduce((total, each) => total + each.Size * each.Price, 0);
+
     
   }
+
+
+
+const postToServer = async () => {
+ 
+  SetordersCount(prevCount => prevCount + 1);
+  console.log(ordersCount)
+
+ 
+  const currentDate = new Date();
+const currentDay = currentDate.getDate();
+const currentMonth = currentDate.getMonth() + 1; 
+const currentYear = currentDate.getFullYear();
+
+const OrderDate=`${currentDay}/${currentMonth}/${currentYear}`
+
+
+  const FinelUpdatesCartList = {...FinelCartList,OrderCount:ordersCount,DateofOrder:OrderDate,userName:username};
+
+  try {
+    const URL = 'https://restomenu-b798e-default-rtdb.firebaseio.com/Orders.json';
+    const Posting = await axios.post(URL, FinelUpdatesCartList);
+    console.log(Posting);
+    MakeCartClear()
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+
+
+  const handleSubmit = ()=>{
+    
+    var options = {
+      key: "rzp_test_juufusxwk4a9jj",
+      key_secret:"ejXOtYG7NpnIoEztcocR",
+      amount: FinelPrice *100,
+      currency:"INR",
+      name:"Ideal Kitchen",
+      description:"Thank you",
+      handler: function(){
+        
+        postToServer()
+        const {history}=props
+        history.push("/Orders")
+     
+       
+      },
+      prefill: {
+        name:"Sidd",
+        email:"siddhumsd@gmail.com",
+        contact:"9347877159"
+      },
+      notes:{
+        address:"Razorpay Corporate office"
+      },
+      theme: {
+        color:"#3399cc"
+      }
+    };
+    var pay = new window.Razorpay(options);
+    pay.open();
+ 
+}
     return(
 <div >
     
@@ -30,7 +99,9 @@ const Cart =()=>{
     }
     
     
-    </div><button className="Amount-button">Amount to be Paid {FinelPrice}/-</button></div>}
+    </div><button onClick={handleSubmit} className="Amount-button">Amount to be Pay {FinelPrice}/-</button>
+    
+    </div>}
     
 </div>
     )
