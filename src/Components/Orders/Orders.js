@@ -1,15 +1,15 @@
-import { useEffect,useState,useContext } from "react"
+import { useEffect,useState, } from "react"
 import OrderItem from '../OrderItems/OrderItems'
 import axios from "axios"
 import "./Orders.css"
-import Info from "../Context/Context"
+
 
 
 
 const Orders=()=>{
 
 const [orderList,SetorderList]=useState([])
-const {OrderdDate}=useContext(Info)
+
 
     useEffect(()=>{
         GettingOrderInfo()
@@ -30,7 +30,7 @@ const {OrderdDate}=useContext(Info)
       console.log(item);
     });
   });
-SetorderList(OrdersOutput)
+SetorderList(OrdersOutput.reverse())
    
    
 

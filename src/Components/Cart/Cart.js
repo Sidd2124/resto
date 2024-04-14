@@ -30,12 +30,7 @@ const postToServer = async () => {
   console.log(ordersCount)
 
  
-  const currentDate = new Date();
-const currentDay = currentDate.getDate();
-const currentMonth = currentDate.getMonth() + 1; 
-const currentYear = currentDate.getFullYear();
-
-const OrderDate=`${currentDay}/${currentMonth}/${currentYear}`
+ 
 
 
   const FinelUpdatesCartList =( {FinelCartList})
